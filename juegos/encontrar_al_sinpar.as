@@ -1,6 +1,12 @@
-#include "lib/funciones.as"
-#include "lib/animacion.as"
-#include "BD/objetos.as"
+//#include "lib/funciones.as"
+include("lib/funciones.as", filetype);
+
+//#include "lib/animacion.as"
+include("lib/animacion.as", filetype);
+
+//#include "BD/objetos.as"
+include("BD/objetos.as", js);
+
 
 mostrar_fondo_btn = true;
 
