@@ -40,6 +40,7 @@ function chr(AsciiNum) {
 _root = $("body");
 _level0 = $("body");
 
+// http://jonathanhui.com/javascript-class
 function MovieClip () {
 
 } 
