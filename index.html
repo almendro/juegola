@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JUEGOLA [:>ARCHIVO BASE<:]</title>
+
+
+<!-- disable iPhone inital scale -->
+<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0"> -->
+<script type="text/javascript">
+(function(doc) {
+
+	var addEvent = 'addEventListener',
+	    type = 'gesturestart',
+	    qsa = 'querySelectorAll',
+	    scales = [1, 1],
+	    meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+
+	function fix() {
+		meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+		doc.removeEventListener(type, fix, true);
+	}
+
+	if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+		fix();
+		scales = [.25, 1.6];
+		doc[addEvent](type, fix, true);
+	}
+
+}(document));
+</script>
+
+
+
+<!-- main css -->
+<link href="responsive/reseter_v2.css" rel="stylesheet" type="text/css">
+<link href="estilos.css" rel="stylesheet" type="text/css">
+
+<!-- media queries css -->
+<link href="responsive/media-queries.css" rel="stylesheet" type="text/css">
+
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="responsive/html5.js"></script>
+<![endif]-->
+
+<!-- css3-mediaqueries.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="responsive/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<script src="jquery/jquery-1.8.0.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="pagewrap">
+
+	<header id="header">
+
+		<hgroup>
+			<h1 id="site-logo"><a href="#">JUEGOLA</a></h1>
+			<h2 id="site-description">js+html</h2>
+		</hgroup>
+
+		<nav>
+			<ul id="main-nav" class="clearfix">
+				<li><a href="#">Home</a></li>
+			</ul>
+			<!-- /#main-nav --> 
+		</nav>
+
+		<form id="searchform">
+			<input type="search" id="s" placeholder="Search">
+		</form>
+
+	</header>
+	<!-- /#header -->
+	
+	<div id="content">
+
+		<article class="post clearfix">
+
+			<header>
+				<h1 class="post-title"><a href="#">Titulo</a></h1>
+				<p class="post-meta"><time class="post-date" datetime="2011-05-08" pubdate>May 8, 2011</time> <em>in</em> <a href="#">Category</a></p>
+			</header>
+			<figure class="post-image"> 
+				<img src="img/image.jpg" /> 
+			</figure>
+			<p>Un texto simple</p>
+
+		</article>
+		<!-- /.post -->
+
+	</div>
+	<!-- /#content --> 
+	
+	
+	<aside id="sidebar">
+
+		<section class="widget">
+			<h4 class="widgettitle">Sidebar</h4>
+			<ul>
+				<li><a href="#">WordPress</a> (3)</li>
+				<li><a href="#">Design</a> (23)</li>
+				<li><a href="#">Design </a>(18)</li>
+			</ul>
+		</section>
+		<!-- /.widget -->
+		<!--
+		<section class="widget clearfix">
+			<h4 class="widgettitle">Flickr Bazza</h4>
+			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&size=s&layout=t&show_name=1&source=user&layout=h&user=87641466@N00"></script>
+			<h4 class="widgettitle">Flickr Almendro</h4>
+			<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&size=s&layout=t&show_name=1&source=user&layout=h&user=8236484@N06"></script>  
+		</section>
+		-->
+		<!-- /.widget -->
+						
+	</aside>
+	<!-- /#sidebar -->
+
+	<footer id="footer">
+	
+		<p>Juegos</p>
+
+	</footer>
+	<!-- /#footer --> 
+	
+</div>
+<!-- /#pagewrap -->
+
+</body>
+</html>
