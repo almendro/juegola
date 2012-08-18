@@ -10,10 +10,39 @@
         <script src="../sinapsis-js/BD/objetos.js"></script>
         <script src="../sinapsis-js/js/sinapsis.js"></script>
         <script src="encontrar_al_sinpar.js"></script>
+        <style>
+                .ficha {
+                        position: relative;
+                        border: 1px solid red;
+                        width: 64px;
+                        height: 64px;
+                        float: left;
+                }
+                .tablero {
+                        display: block;
+                        width: 200px;
+                }
+                .fondo {
+                        position: absolute;
+                        width: 64px;
+                        height: 64px;                        
+                        display: block;
+                        background: gray;
+                        opacity: .75;
+                }
+                .halo {
+                        position: absolute;
+                        top: 0; 
+                        left: 0;
+                        width: 64px;
+                        height: 64px;              
+                        display: block;
+                        border: 3px solid green;
+                }
+        </style>
 </head>
         <body>
                 <div class="tablero">
-                        
                         <div class="ficha ficha0">
                                 <div class="fondo"></div>
                                 <div class="halo"></div>
@@ -69,12 +98,6 @@
                                 <div class="fondo"></div>
                                 <div class="halo"></div>
 
-                                <div class="figura"><img src="sinapsis-js/graficos/geometria.png" /></div>
-                        </div><!-- .ficha -->
-
-                        <div class="ficha ficha9">
-                                <div class="fondo"></div>
-                                <div class="halo"></div>
                                 <div class="figura"><img src="sinapsis-js/graficos/geometria.png" /></div>
                         </div><!-- .ficha -->
 

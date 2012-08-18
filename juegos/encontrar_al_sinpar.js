@@ -1,11 +1,11 @@
 trace = function () {};
 
-/*
+
 $(document).ready(function() {
 
 try {
 
-*/
+
 mostrar_fondo_btn = true;
 
 
@@ -39,12 +39,15 @@ trace (" OBJETOS ----------->" + objetos);
  // elije un objeto al azar que no es del mismo reino
 
 fichas = fn_GC(null,fn_unir([nodo_no_repetido], fn_unir(objetos, objetos)) , 9, false);
+
 trace ("RESULTADO FICHAS ---> "+ fichas);
 
 fn_fichas ("ficha", fichas, null, null);
 
 // delay para que no actuen los botones
-fn_tiemp_dispara (20, function () {fn_fichas ("ficha", fichas, [fichas[fn_cual_contiene(fichas, nodo_no_repetido)]], null);});
+fn_tiemp_dispara (9, function () {
+        fn_fichas ("ficha", fichas, [fichas[fn_cual_contiene(fichas, nodo_no_repetido)]], null);
+});
 
 
 
@@ -76,11 +79,11 @@ function desacierto_custom (eleccion) {
 
 //stop();
 
-/*
+
 } catch (e) {
         //----------------dump------------------------
         alert( "error:'" + e.message + "'" || "error: '" + e + "'");
 }        
 
 });
-*/
+

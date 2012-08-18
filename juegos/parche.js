@@ -1,3 +1,11 @@
+// trace
+var w = window.wrappedJSObject || window;
+trace = w.alert;
+// parche
+_root = $("body"); 
+_level0 = $("body");
+
+
 function loadfile(filename, filetype){
         if (filetype=="js"){
                 var fileref=document.createElement('script') ;
@@ -21,9 +29,6 @@ function include (filename) {
         loadfile (filename, "js")
 }
 
-// trace
-var w = window.wrappedJSObject || window;
-trace = w.alert;
 
 
 // chr y asc http://jalaj.net/2007/03/08/asc-and-chr-in-javascript/
@@ -37,54 +42,65 @@ function chr(AsciiNum) {
 }
 
 
-_root = $("body");
-_level0 = $("body");
 
 // http://jonathanhui.com/javascript-class
 function MovieClip () {
+        this.gotoAndStop = function (e) {
+        }
 
-} 
-
-MovieClip.prototype.gotoAndStop = function(e) { 
-        return e 
+				this.onRollOut = function (e){
+						alert(e);
+				}
 }
 
+
 MovieClip.prototype.fondo = function() { 
+        return this.$(".fondo")
 }
 
 MovieClip.prototype.halo = function() { 
+        return this.$(".halo")
 }
 
 // include ("js/Animation.js");
 
 //-----fichas---
 
-ficha0 = $(".ficha0");
-ficha1 = $(".ficha1");
-ficha2 = $(".ficha2");
-ficha3 = $(".ficha3");
-ficha4 = $(".ficha4");
-ficha5 = $(".ficha5");
-ficha6 = $(".ficha6");
-ficha7 = $(".ficha7");
-ficha8 = $(".ficha8");
-ficha9 = $(".ficha9");
-ficha10 = $(".ficha10");
-ficha11 = $(".ficha10");
-
-ficha0 = new MovieClip();
-ficha1 = new MovieClip();
-ficha2 = new MovieClip();
-ficha3= new MovieClip();
-ficha4 = new MovieClip();
-ficha5 = new MovieClip();
-ficha6 = new MovieClip();
-ficha7 = new MovieClip();
-ficha8 = new MovieClip();
-ficha9 = new MovieClip();
-ficha10 = new MovieClip();
-ficha11 = new MovieClip();
+for (n=0; n < 9; n++)  {
+        eval ('ficha'+n+' = $(".ficha'+n+'");');
+        eval ('ficha'+n+' = new MovieClip();');
+}
 
 
-//www.pluginmedia.net/dev/infector/
-// mirar como animan
+//www.pluginmedia.net/dev/infector/ // mirar como animan
+
+
+//---------------------------------------------------------------------
+
+function fn_tiemp_dispara (delay, funcion, parametros) {
+        var soy_fn="fn_tiemp_dispara";
+        // hardcodie 24 cuadros por segundo
+        return $.fn.delay(delay * 24, funcion(parametros))
+}
+
+function fn_ani_pop (mc, escala, fts, tipo, funcion) {
+	var soy_fn="fn_ani_pop";
+
+	/*
+		mc: MovieClip en string
+		escala:[ x, y , w, h, alfa ,... ]
+		fts: [0, 0] 
+			0- Delay
+			1- largo de la animacion en fotogramas 
+			
+	*/
+
+	$("."+mc).delay(fts[0]*24).animate({
+		left: "+="+escala[0],
+		top: "+="+escala[1],
+    width: "+="+escala[2],
+    height: "+="+escala[3],
+    opacity: '+='+((escala[4])/100),
+  }, fts[1]*24, 'linear', funcion);
+
+}
