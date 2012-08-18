@@ -1,7 +1,7 @@
-#include "lib/funciones.as"
-#include "lib/animacion.as"
-#include "BD/objetos.as"
 
+$(document).ready(function() {
+
+try {
 
 mostrar_fondo_btn = true;
 
@@ -14,7 +14,9 @@ mostrar_fondo_btn = true;
 
 */
 
-var objetos:Array = new Array();
+//var objetos:Array = new Array();
+
+var objetos = [];
 
 for (k=0; k < 4; k++)  {
 	do {
@@ -68,3 +70,12 @@ function desacierto_custom (eleccion) {
 }
 
 //stop();
+
+alert(2);
+
+} catch (e) {
+        //----------------dump------------------------
+        alert( "error:'" + e.message + "'" || "error: '" + e + "'");
+}        
+
+});

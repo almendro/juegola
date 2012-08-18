@@ -18,5 +18,7 @@ function include (filename) {
                 Esto reemplza el include
                 #include "\(.*\)"       ->      include ("\1");
         */
-        loadfile (filename, "js");
+        loadfile (filename, "js")
 }
+
+trace = alert;
