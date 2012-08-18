@@ -85,3 +85,6 @@ ficha9 = new MovieClip();
 ficha10 = new MovieClip();
 ficha11 = new MovieClip();
 
+
+//www.pluginmedia.net/dev/infector/
+// mirar como animan
