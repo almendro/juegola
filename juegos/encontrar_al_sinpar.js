@@ -1,8 +1,11 @@
+trace = function () {};
 
+/*
 $(document).ready(function() {
 
 try {
 
+*/
 mostrar_fondo_btn = true;
 
 
@@ -16,7 +19,8 @@ mostrar_fondo_btn = true;
 
 //var objetos:Array = new Array();
 
-var objetos = [];
+var objetos = Array();
+
 
 for (k=0; k < 4; k++)  {
 	do {
@@ -38,6 +42,7 @@ fichas = fn_GC(null,fn_unir([nodo_no_repetido], fn_unir(objetos, objetos)) , 9, 
 trace ("RESULTADO FICHAS ---> "+ fichas);
 
 fn_fichas ("ficha", fichas, null, null);
+
 // delay para que no actuen los botones
 fn_tiemp_dispara (20, function () {fn_fichas ("ficha", fichas, [fichas[fn_cual_contiene(fichas, nodo_no_repetido)]], null);});
 
@@ -71,11 +76,11 @@ function desacierto_custom (eleccion) {
 
 //stop();
 
-alert(2);
-
+/*
 } catch (e) {
         //----------------dump------------------------
         alert( "error:'" + e.message + "'" || "error: '" + e + "'");
 }        
 
 });
+*/

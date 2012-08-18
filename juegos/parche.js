@@ -40,24 +40,47 @@ function chr(AsciiNum) {
 _root = $("body");
 _level0 = $("body");
 
+function MovieClip () {
 
+} 
 
-function keyListener(e){
-if(!e){
-        //for IE
-        e = window.event;
+MovieClip.prototype.gotoAndStop = function(e) { 
+        return e 
 }
 
-if(e.keyCode==37 && paddleLeft > 0){
-//keyCode 37 is left arrow
-paddleLeft -= 4;
-paddle.style.left = paddleLeft + 'px';
+MovieClip.prototype.fondo = function() { 
 }
-if(e.keyCode==39 && paddleLeft < 436){
-//keyCode 39 is right arrow
-paddleLeft += 4;
-paddle.style.left = paddleLeft + 'px';
+
+MovieClip.prototype.halo = function() { 
 }
-// FYI - keyCode 38 is up arrow,
-// keyCode 40 is down arrow
-}
+
+// include ("js/Animation.js");
+
+//-----fichas---
+
+ficha0 = $(".ficha0");
+ficha1 = $(".ficha1");
+ficha2 = $(".ficha2");
+ficha3 = $(".ficha3");
+ficha4 = $(".ficha4");
+ficha5 = $(".ficha5");
+ficha6 = $(".ficha6");
+ficha7 = $(".ficha7");
+ficha8 = $(".ficha8");
+ficha9 = $(".ficha9");
+ficha10 = $(".ficha10");
+ficha11 = $(".ficha10");
+
+ficha0 = new MovieClip();
+ficha1 = new MovieClip();
+ficha2 = new MovieClip();
+ficha3= new MovieClip();
+ficha4 = new MovieClip();
+ficha5 = new MovieClip();
+ficha6 = new MovieClip();
+ficha7 = new MovieClip();
+ficha8 = new MovieClip();
+ficha9 = new MovieClip();
+ficha10 = new MovieClip();
+ficha11 = new MovieClip();
+
