@@ -12,43 +12,7 @@ desbichador_init();
 
 mostrar_fondo_btn = true;
 
-	/* 
-	
-	ajustamos el desplazamiento de la imagen completa con todas las figuras dispuestas en una grilla de 11 x 11, según el número de ficha, y mantenemos la proporción de las fichas mientras cambie de escala la ventana.
-	
-	BUG: tiene un parpadeo, seriá mejor que sólo ejecute el refresco una vez que se terminó de redimensionar la ventana.
-	
-	ESTO DEBERIA SER ALGO GENERICO pero HAY QUE HACERLO MAS VERSATIL.
-	*/
-	
 	$fichas = jQuery('.ficha');
-	
-	render_fichas = setInterval(function(){
-		$fichas.each(function(e){
-			jQuery(this).css({
-				height: jQuery(this).css('width')
-			});
-			var txt;
-			if ( this.txt == undefined ) 
-			{
-				txt = e;
-			}
-			else
-			{
-				txt = fn_pos_xy({
-					nro_ficha: this.txt,
-					datos_tablero: {
-						columnas: 11
-					}
-				});
-			}
-			
-			jQuery('.figura img',this).css({
-				top: -txt.y * (jQuery('.figura img',this).height()/11)+'px',
-				left: -txt.x * (jQuery('.figura img',this).width()/11)+'px'
-			});
-		});
-	},200);
 
 
 /* 
@@ -91,7 +55,7 @@ fn_tiemp_dispara (9, function () {
 });
 
 
-/* NUEVO: reemplaza de manera visual los objetos buscando los números de nodos en una BD unificada, y luego usando ese número para determinar en la grilla de figuras geométricas cual corresponde. Esta última parte la hace el interval de render_fichas */
+/* NUEVO: reemplaza de manera visual los objetos buscando los números de nodos en una BD unificada, y luego usando ese número para determinar en la grilla de figuras geométricas cual corresponde. */
 
 var tmp_objetos_en_numeros = [];
 for ( v=0;v<bd_objetos.length;v++)
@@ -101,8 +65,22 @@ for ( v=0;v<bd_objetos.length;v++)
 trace("tmp_objetos_en_numeros "+desbichador_ver(tmp_objetos_en_numeros));
 
 $fichas.each(function(e){
+
 	this.txt = fn_cual_contiene(tmp_objetos_en_numeros,fichas[e]);
 	trace ( "this.txt = "+this.txt);
+	
+	txt = fn_pos_xy({
+		nro_ficha: this.txt,
+		datos_tablero: {
+		columnas: 11
+		}
+	});
+
+	jQuery('.figura img',this).css({
+		top: -txt.y * (jQuery('.figura img',this).height()/11)+'px',
+		left: -txt.x * (jQuery('.figura img',this).width()/11)+'px'
+		});
+		
 });
 /* ------------------------------ */
 
