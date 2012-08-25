@@ -45,14 +45,18 @@ function chr(AsciiNum) {
 
 // http://jonathanhui.com/javascript-class
 function MovieClip () {
-        this.gotoAndStop = function (e) {
-        }
-
-				this.onRollOut = function (e){
-						alert(e);
-				}
 }
 
+
+MovieClip.prototype.gotoAndStop = function() { 
+        //this._currentframe = this.valueOf();
+}
+
+MovieClip.prototype.onRollOut = function() { 
+        this.hover(function () {
+                alert("up!, funciona");
+        });
+}
 
 MovieClip.prototype.fondo = function() { 
         return this.$(".fondo")
