@@ -1,11 +1,12 @@
 
 #desbichador{
 	position:absolute;
-	width:400px;
-	height:300px;
+	width:30%;
+	height:100%;
 	top:10px;
-	left:10px;
+	right:10px;
 	color:#eee;
+	visibility: hidden;
 }
 #desbichador_contenido{
 	position:relative;
@@ -25,15 +26,17 @@
 	color:#eee;
 	overflow:auto;
 	width:98%;
-	height:50%;
+	height:75%;
 	border:1px solid #AAA;
 	margin:1%;
-	top:46%;
+	top:20%;
 	position:absolute;
 	z-index:100;
 	
 }
 #desbichador pre div{
+	font-size: 11px;
+	font-family: monospace;
 	clear:both;
 	color:#eee;
 	display:block;

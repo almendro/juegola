@@ -11,13 +11,78 @@ var trace = function(){};
 var desbichador_salida;
 var desbichador_n;
 
+
+	// --- --- --- EVENTOS DE TECLADO --- --- ---
+	
+	// doblekey intercepta que se haya pulsado dos veces una tecla y ejecuta una acción.
+
+	var doblekey_ultima = null, 	// timeStamp de la ultima vez que se presionó una tecla
+			doblekey_diferencia = 0,  // diferencia de tiempo
+			doblekey_tecla = null, 		// ultima tecla presionada
+			doblekey_tecla_actual;	  // tecla actual
+			
+			
 function desbichador_init(){
 	//alert("desbichador_init");
+	
+	// agregamos los elementos en el DOM
+	jQuery('body').append("<div id=\"desbichador\"><div id=\"desbichador_contenido\"><div id=\"desbichador_fondo\"></div><div id=\"desbichador_activador\"></div><div id=\"desbichador_panel\"><div class=\"desbichador_variable\">(+)</div></div><div id=\"desbichador_salida\"><pre></pre></div><!-- #desbichador_salida --></div><!-- #desbichador_contenido --></div><!-- #desbichador -->");
+	
 	desbichador_salida = jQuery('#desbichador_salida pre');
 	$desbichador_contenido = jQuery("#desbichador_contenido");
+	$desbichador = jQuery('#desbichador');
 	desbichador_n = 0;
-	//window.alert = trace = desbichador;
-	trace = desbichador;
+
+	trace = desbichador; // emulamos para FLASH
+	
+
+	jQuery('html').keyup(function(e) {
+		
+		//console.log("html keyup "+e.which);
+		
+		doblekey_tecla_actual = e.which;
+
+		// comprobamos si ya se habia pulsado antes la misma tecla
+		if ( doblekey_ultima!=null && doblekey_tecla == doblekey_tecla_actual ) {
+		
+			// calculamos la diferencia tomando el timeStamp del evento, ver la variable (e) en la llamada a la function (esto lo genera jQuery automaticamente)
+			doblekey_diferencia = e.timeStamp - doblekey_ultima;
+			//console.log('doblekey_diferencia '+doblekey_diferencia);
+			
+			// umbral de activacion para el doblekey
+			if ( doblekey_diferencia > 100 && doblekey_diferencia < 400 ){
+			
+			
+				// activaciones del teclado que funcionan en todo momento
+				
+				switch (doblekey_tecla_actual)
+				{
+				
+					case 68: // D - muestra/oculta la ventana del desbichador
+						
+						if($desbichador.css('visibility')=='visible'){
+							$desbichador.css('visibility','hidden');
+						} else {
+							$desbichador.css('visibility','visible');
+						}
+						
+					break;
+
+				}// switch
+				
+				
+			} // if dif > 100 < 400
+			
+		}// if doblekey_ultima
+		
+		// capturamos la pulsación actual
+		doblekey_ultima = e.timeStamp;
+		doblekey_tecla = doblekey_tecla_actual;
+		
+		console.log ("doblekey_tecla "+doblekey_tecla);
+		
+	}); // html.keyup
+		
 }
 
 function fnull(){};
