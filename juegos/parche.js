@@ -1,8 +1,9 @@
-// trace
 var w = window.wrappedJSObject || window;
-trace = w.alert;
+/*trace = w.alert;*/
+
+
 // parche
-_root = $("body"); 
+_root = $("body");
 _level0 = $("body");
 
 
@@ -44,16 +45,23 @@ function chr(AsciiNum) {
 
 
 // http://jonathanhui.com/javascript-class
+
+// Aquí también sobre objetos, clases y prototype: http://panicoenlaxbox.blogspot.com.ar/2010/12/poo-en-javascript-ii.html
+
+
+// y esta me parece la solucion: http://jsmovieclip.jeremypetrequin.fr/
 function MovieClip () {
+	alert("soy MovieClip "+this.toString()+" "+" "+this.valueOf());
 }
 
 
-MovieClip.prototype.gotoAndStop = function() { 
+MovieClip.prototype.gotoAndStop = function(frame) { 
         //this._currentframe = this.valueOf();
+    //    trace($(this).parent().attr('id') + " "+frame);
 }
 
 MovieClip.prototype.onRollOut = function() { 
-        this.hover(function () {
+        $(this).hover(function () {
                 alert("up!, funciona");
         });
 }
@@ -71,8 +79,9 @@ MovieClip.prototype.halo = function() {
 //-----fichas---
 
 for (n=0; n < 9; n++)  {
-        eval ('ficha'+n+' = $(".ficha'+n+'");');
-        eval ('ficha'+n+' = new MovieClip();');
+	alert("ficha"+n+" = new MovieClip");
+  // eval ('ficha'+n+' = $(".ficha'+n+'");');
+	eval ('ficha'+n+' = new MovieClip();');
 }
 
 
