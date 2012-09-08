@@ -1,5 +1,5 @@
 <h1>JUEGOS en bruto</h1>
-<p><a href="../index.html">&lt;--- VOLVER AL INDEX</a></p>
+<h2><a href="../index.html">VOLVER AL INDEX</a></h2>
 <ul>
 <?php 
 $ruta = "./";

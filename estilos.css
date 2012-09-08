@@ -340,7 +340,7 @@ body.juegos
 }
 .figura img
 {
-	width: 1100%;
+	width: 100%; /* este valor hay que cambiarlo segun la cantidad de frames que tenga la tira */
 	height: auto;
 	position: relative;
 }

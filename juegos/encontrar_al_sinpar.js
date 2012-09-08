@@ -1,8 +1,6 @@
 //trace = function () {};
 
 var $fichas;
-var render_fichas;
-
 
 $(document).ready(function() {
 
@@ -12,7 +10,26 @@ desbichador_init();
 
 mostrar_fondo_btn = true;
 
-	$fichas = jQuery('.ficha');
+$fichas = jQuery('.ficha');
+
+for (n=0; n < 9; n++)  {
+  // eval ('ficha'+n+' = $(".ficha'+n+'");');
+	//eval ('ficha'+n+' = new Object();');
+	trace("vamos");
+	$('.ficha'+n).movieclip({
+		'width' : 154,
+		'framerate' : 25,
+		'frames' : 11,
+		'url' : 'inline',
+		'debug' : false,
+		'callBack' : null,
+		'mode' : 'div',
+		'div' : '.figura'
+	});
+	
+	eval('$ficha'+n+" = $('.ficha'+"+n+").data('Movieclip');"); 
+	//eval('$ficha'+n+".play(true);");
+}
 
 
 /* 
@@ -77,10 +94,15 @@ $fichas.each(function(e){
 	});
 
 	jQuery('.figura img',this).css({
-		top: -txt.y * (jQuery('.figura img',this).height()/11)+'px',
-		left: -txt.x * (jQuery('.figura img',this).width()/11)+'px'
-		});
+		top: -txt.y * (jQuery('.figura img',this).height()/11)+'px'
 		
+/*	,	left: -txt.x * (jQuery('.figura img',this).width()/11)+'px'*/
+	});
+	alert("index = "+e);
+	//jQuery('.ficha'+e).play(true);
+	
+	eval('$ficha'+e+".gotoAndStop("+txt.x+");"); 
+
 });
 /* ------------------------------ */
 
