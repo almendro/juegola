@@ -4,6 +4,8 @@ body {
 	background: #0d1424 url(images/body-bg.jpg) no-repeat center top;
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
+	margin: 0px;
+	padding: 10px; 
 }
 a {
 	color: #026acb;
@@ -293,10 +295,19 @@ CLEARFIX
 
 
 
+
+/* *********************** JUEGOS *********************** */
+
+body.juegos
+{
+	margin:0;
+	padding: 0;
+}
+
 .tablero
 {
-	width: 600px;
-	height: 600px;
+	width: 640px;
+	height: 480px;
 	max-width: 100%;
 	max-height: 100%;
 }
@@ -306,13 +317,9 @@ CLEARFIX
 	position: relative;
 	float: left;
 	background: #888;
-	margin: 2px;
 	max-width: 256px;
 	max-height: 256px;
-	width: 30%;
-	height: 30%;
 	overflow: hidden;
-	
 }
 .fondo
 {

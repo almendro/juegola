@@ -1,0 +1,11 @@
+.tablero{
+	width: 480px;
+}
+.ficha {
+	position: relative;
+	border: 1px solid red;
+	max-width: 154px;
+	max-height: 154px;
+	margin: 2px;
+	float: left;
+}
