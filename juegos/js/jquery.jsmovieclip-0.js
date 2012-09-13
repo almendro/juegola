@@ -11,7 +11,7 @@ var Movieclip = {
    _settings : {
       'width' : 100,
       'framerate' : 25,
-      'frames' : 10,
+      'frames' : 10,  /* ver la posibilidad de automatizar la cantidad de frames segun el tamaño de la imagen y el ancho de la div */
       'url' : 'img/sprite.png', /* url || 'inline' indica que la div.figura tiene ya la imagen cargada con <img /> */
       'debug' : false,
       'callBack' : null,
@@ -48,7 +48,7 @@ var Movieclip = {
 		    		$(this._settings.div,this._elmt).html('<img src="'+this._settings.url+'" />');
 		    	}
 		    	$(this._settings.div+' img',this._elmt).css({
-		    			width: (this._settings.frames*100)+'%'
+		    			width: (this._settings.frames*100)+'%' // escala la imagen acorde a la cantidad de frames.
 	    		});
 		    }
         if(this._settings.debug) $(this._elmt).prepend('<div class="frame">1</div>');

@@ -10,26 +10,8 @@ desbichador_init();
 
 mostrar_fondo_btn = true;
 
-$fichas = jQuery('.ficha');
 
-for (n=0; n < 9; n++)  {
-  // eval ('ficha'+n+' = $(".ficha'+n+'");');
-	//eval ('ficha'+n+' = new Object();');
-	trace("vamos");
-	$('.ficha'+n).movieclip({
-		'width' : 154,
-		'framerate' : 25,
-		'frames' : 11,
-		'url' : 'inline',
-		'debug' : false,
-		'callBack' : null,
-		'mode' : 'div',
-		'div' : '.figura'
-	});
-	
-	eval('$ficha'+n+" = $('.ficha'+"+n+").data('Movieclip');"); 
-	//eval('$ficha'+n+".play(true);");
-}
+
 
 
 /* 
@@ -79,8 +61,9 @@ for ( v=0;v<bd_objetos.length;v++)
 {
 	tmp_objetos_en_numeros = fn_unir(tmp_objetos_en_numeros,bd_objetos[bd_objetos[v]]);
 }
-trace("tmp_objetos_en_numeros "+desbichador_ver(tmp_objetos_en_numeros));
+//trace("tmp_objetos_en_numeros "+desbichador_ver(tmp_objetos_en_numeros));
 
+$fichas = $('.ficha');
 $fichas.each(function(e){
 
 	this.txt = fn_cual_contiene(tmp_objetos_en_numeros,fichas[e]);
@@ -101,8 +84,8 @@ $fichas.each(function(e){
 	alert("index = "+e);
 	//jQuery('.ficha'+e).play(true);
 	
-	eval('$ficha'+e+".gotoAndStop("+txt.x+");"); 
-
+	//eval('ficha'+e+".gotoAndStop("+txt.x+");"); 
+	//["ficha"+n].gotoAndStop(txt.x);
 });
 /* ------------------------------ */
 

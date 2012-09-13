@@ -50,6 +50,9 @@ function chr(AsciiNum) {
 
 
 // y esta me parece la solucion: http://jsmovieclip.jeremypetrequin.fr/
+
+
+/*
 function MovieClip () {
 	alert("soy MovieClip "+this.toString()+" "+" "+this.valueOf());
 }
@@ -83,6 +86,29 @@ for (n=0; n < 9; n++)  {
   // eval ('ficha'+n+' = $(".ficha'+n+'");');
 	eval ('ficha'+n+' = new MovieClip();');
 }
+*/
+
+
+$("div").each( function (e){
+alert("creando MC "+$(this).attr('id'));
+	if ( $(this).attr('id')!=''){
+		$(this).movieclip({
+			'width' : 154,
+			'framerate' : 25,
+			'frames' : 11,
+			'url' : 'inline',
+			'debug' : false,
+			'callBack' : null,
+			'mode' : 'div',
+			'div' : '.figura'
+		});
+	
+		eval($(this).attr("id")+" = $(this).data('Movieclip');"); 		
+		
+	}
+});
+
+
 
 
 //www.pluginmedia.net/dev/infector/ // mirar como animan
