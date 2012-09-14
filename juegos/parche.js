@@ -6,6 +6,10 @@ var w = window.wrappedJSObject || window;
 _root = $("body");
 _level0 = $("body");
 
+_root.play = function ()
+{
+	alert("OTRA RONDA");
+};
 
 function loadfile(filename, filetype){
         if (filetype=="js"){
@@ -88,10 +92,18 @@ for (n=0; n < 9; n++)  {
 }
 */
 
+$(document).ready(function() {
+
+try {
+
+//alert ("revisar las divs");
 
 $("div").each( function (e){
-alert("creando MC "+$(this).attr('id'));
-	if ( $(this).attr('id')!=''){
+
+
+	if($(this).attr('id')){
+	
+		//alert("creando MC "+$(this).attr('id'));
 		$(this).movieclip({
 			'width' : 154,
 			'framerate' : 25,
@@ -103,12 +115,36 @@ alert("creando MC "+$(this).attr('id'));
 			'div' : '.figura'
 		});
 	
-		eval($(this).attr("id")+" = $(this).data('Movieclip');"); 		
+		eval($(this).attr("id")+" = $(this).data('Movieclip');");
 		
+		$('div',this).each(function(e){
+			
+			if($(this).hasClass('mc')){
+				//alert("sub: "+$(this).parent().attr("id")+"."+$(this).attr('class'));
+				$(this).movieclip({
+					'width' : 154,
+					'framerate' : 25,
+					'frames' : 11,
+					'url' : 'inline',
+					'debug' : false,
+					'callBack' : null,
+					'mode' : 'div',
+					'div' : '.figura'
+				});
+				$(this).removeClass('mc');
+				eval($(this).parent().attr("id")+"."+$(this).attr('class')+" = $(this).data('Movieclip');");
+			}
+		});
 	}
+
 });
 
+} catch (e) {
+        //----------------dump------------------------
+        alert( "error:'" + e.message + "'" || "error: '" + e + "'");
+}        
 
+});
 
 
 //www.pluginmedia.net/dev/infector/ // mirar como animan
@@ -143,3 +179,5 @@ function fn_ani_pop (mc, escala, fts, tipo, funcion) {
   }, fts[1]*24, 'linear', funcion);
 
 }
+
+

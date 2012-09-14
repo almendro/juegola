@@ -84,8 +84,9 @@ $fichas.each(function(e){
 	alert("index = "+e);
 	//jQuery('.ficha'+e).play(true);
 	
-	//eval('ficha'+e+".gotoAndStop("+txt.x+");"); 
+	eval('ficha'+e+".gotoAndStop("+txt.x+");"); 
 	//["ficha"+n].gotoAndStop(txt.x);
+	//eval('ficha'+e+'.onPress();');
 });
 /* ------------------------------ */
 

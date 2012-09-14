@@ -52,6 +52,12 @@ var Movieclip = {
 	    		});
 		    }
         if(this._settings.debug) $(this._elmt).prepend('<div class="frame">1</div>');
+        $(this._elmt).click(function(){
+        	if($(this).attr('id')){
+        		eval($(this).attr('id')).onPress();
+        	}
+        });
+
         return this;
     },
     reverseAnimation : function () {
