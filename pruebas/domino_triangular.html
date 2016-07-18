@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Domino triangular - Generador de fichas</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+      
+    <script src="assets/modernizr.js"></script>
+   <!--
+    <link rel="stylesheet" type="text/css" href="assets/dev/style.css" media="screen" />
+    -->
+    
+    <script>
+      
+      var $log, trace;
+      trace=function(e){
+        if (console.log){
+          console.log(e);
+        } else {
+          alert(e);
+        }
+      };
+      
+      Modernizr.load([
+        {
+          load: "assets/jquery-2.2.3.min.js",
+          complete: function (){
+            if(!window.jQuery){
+              trace("fallo jQuery");
+            }
+          }
+        },
+//        "js/dev.js",
+        {
+          load: "./domino_triangular.js",
+          complete: function (){
+            if(!window.domino_triangular){
+              trace("fallo domino triangular");
+            } else {
+              
+              $log = $("#consola #log");
+              trace = function (e){
+                $log.append("<p>"+e+"</p>");
+                $( "#consola" ).trigger( "updatelayout" );
+              }
+              domino_triangular();
+            }
+          }/* /complete */
+        }
+      ]);/* /Modernizr.load */
+    </script>
+
+    <!-- *** DEV *** -->
+    <!-- - ->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/desbichador/desbichador.css" />
+    <script src="assets/desbichador/desbichador.js"></script>
+    <!-- -->
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/nicealert/style.css" />
+    <script src="assets/nicealert/nice_alert.js"></script>
+    <!-- -->
+    
+    <style>
+      /*ol li { display: inline-block;background:#ccc;padding: 1em;margin:.25em;list-style: outside decimal-leading*/zero}
+    </style>
+  </head>
+
+  <body class="ui-body-a" >
+
+    <!-- /* DEV */ - ->
+    <div id="clearAllNiceAlert" style="display:block;position:fixed;top:0;left:40%;" class="btn btn-raised btn-danger btn-xs">
+    Clear All NiceAlerts
+    </div>
+    <!-- -->
+
+<!-- ------------------ -->
+
+    <header id="mi_cabecera" data-role="header" data-theme="b" data-position="fixed">
+      <h1>Dominó triangular: Generador de fichas</h1>
+    </header><!-- /#mi_cabecera -->
+
+<!-- ------------------ -->
+
+    <section id="inicio" data-role="page" class="seccion">
+      <ol id="fichas">
+      
+      </ol>
+    </section><!-- /#configuracion -->
+ 
+ <!-- ------------------ -->
+ 
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+
+    </footer>
+  </body>
+</html>
